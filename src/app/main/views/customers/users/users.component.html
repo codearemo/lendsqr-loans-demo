@@ -79,7 +79,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="hover:cursor-pointer hover:bg-gray-200">
+          <tr *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="hover:cursor-pointer hover:bg-gray-200" (click)="gotoUserDetails()">
             <td>
               <div class="py-4 border-b px-2">
                 <span class="text-xs whitespace-nowrap text-text1 pr-7">Lendsqr</span>

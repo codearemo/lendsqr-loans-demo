@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
       children: [
         {
           title: 'Dashboard',
-          icon: '',
+          icon: 'pi pi-desktop',
         },
       ],
     },
@@ -29,35 +29,35 @@ export class SidebarComponent implements OnInit {
       children: [
         {
           title: 'Users',
-          icon: '',
+          icon: 'pi pi-user',
         },
         {
           title: 'Guarantors',
-          icon: '',
+          icon: 'pi pi-user-plus',
         },
         {
           title: 'Loans',
-          icon: '',
+          icon: 'pi pi-credit-card',
         },
         {
           title: 'Decision Models',
-          icon: '',
+          icon: 'pi pi-info',
         },
         {
           title: 'Savings',
-          icon: '',
+          icon: 'pi pi-money-bill',
         },
         {
           title: 'Loan Requests',
-          icon: '',
+          icon: 'pi pi-wallet',
         },
         {
           title: 'Whitelist',
-          icon: '',
+          icon: 'pi pi-file',
         },
         {
           title: 'Karma',
-          icon: '',
+          icon: 'pi pi-history',
         },
       ],
     },
@@ -66,39 +66,39 @@ export class SidebarComponent implements OnInit {
       children: [
         {
           title: 'Organization',
-          icon: '',
+          icon: 'pi pi-sitemap',
         },
         {
           title: 'Loan Products',
-          icon: '',
+          icon: 'pi pi-stop',
         },
         {
           title: 'Savings Products',
-          icon: '',
+          icon: 'pi pi-thumbs-up',
         },
         {
           title: 'Fees and Charges',
-          icon: '',
+          icon: 'pi pi-percentage',
         },
         {
           title: 'Transactions',
-          icon: '',
+          icon: 'pi pi-list',
         },
         {
           title: 'Services',
-          icon: '',
+          icon: 'pi pi-exclamation-triangle',
         },
         {
           title: 'Service Account',
-          icon: '',
+          icon: 'pi pi-database',
         },
         {
           title: 'Settlements',
-          icon: '',
+          icon: 'pi pi-check',
         },
         {
           title: 'Reports',
-          icon: '',
+          icon: 'pi pi-book',
         },
       ],
     },
@@ -107,15 +107,15 @@ export class SidebarComponent implements OnInit {
       children: [
         {
           title: 'Preferences',
-          icon: '',
+          icon: 'pi pi-cog',
         },
         {
           title: 'Fees and Pricing',
-          icon: '',
+          icon: 'pi pi-dollar',
         },
         {
           title: 'Audit Logs',
-          icon: '',
+          icon: 'pi pi-file-excel',
         },
       ],
     },

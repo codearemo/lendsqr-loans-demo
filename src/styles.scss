@@ -22,3 +22,25 @@ input {
 .p-rating .p-rating-icon {
   @apply text-yellow-400;
 }
+
+// Scrollbar
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3e3e3e;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 2px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #3e3e3e23;
+  border-radius: 20px;
+  border: none;
+}
