@@ -1,0 +1,16 @@
+.dashboad-link {
+  @apply my-3;
+}
+
+.active {
+  @apply bg-primary bg-opacity-5 border-primary;
+  
+  
+  & > * {
+    @apply font-semibold;
+  }
+}
+
+.nav-link:hover {
+  @apply bg-primary bg-opacity-5;
+}

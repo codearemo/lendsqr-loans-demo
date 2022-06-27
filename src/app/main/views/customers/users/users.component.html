@@ -1,0 +1,129 @@
+<div class="">
+  <h2 class="text-lg font-semibold text-secondary">Users</h2>
+  <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+    <div class="shadow p-4 rounded grid gap-2">
+      <div class="bg-pinkpurple bg-opacity-5 rounded-full p-4 w-14">
+        <img src="./../../../../../assets/users.png" alt="" class="w-14 text-pinkpurple">
+      </div>
+      <p class="text-sm font-light text-text1">Users</p>
+      <h3 class="text-lg font-semibold text-secondary">2,453</h3>
+    </div>
+    <div class="shadow p-4 rounded grid gap-2">
+      <div class="bg-purpleblue bg-opacity-5 rounded-full p-4 w-14">
+        <img src="./../../../../../assets/active_users.png" alt="" class="w-14 text-purpleblue">
+      </div>
+      <p class="text-sm font-light text-text1">Active Users</p>
+      <h3 class="text-lg font-semibold text-secondary">2,453</h3>
+    </div>
+    <div class="shadow p-4 rounded grid gap-2">
+      <div class="bg-primaryorange bg-opacity-5 rounded-full p-4 w-14">
+        <img src="./../../../../../assets/loan_users.png" alt="" class="w-14 text-primaryorange">
+      </div>
+      <p class="text-sm font-light text-text1">Users with Loans</p>
+      <h3 class="text-lg font-semibold text-secondary">12,453</h3>
+    </div>
+    <div class="shadow p-4 rounded grid gap-2">
+      <div class="bg-tumeric bg-opacity-5 rounded-full p-4 w-14">
+        <img src="./../../../../../assets/saving_users.png" alt="" class="w-14 text-tumeric">
+      </div>
+      <p class="text-sm font-light text-text1">Users with Savings</p>
+      <h3 class="text-lg font-semibold text-secondary">102,453</h3>
+    </div>
+  </div>
+
+  <div class="mt-10 shadow-md">
+    <div class="overflow-scroll overflow-y-auto h-96">
+      <table class="w-full">
+        <thead class="sticky top-0 bg-white">
+          <tr class="">
+            <th class="bg-gray-100 py-4 px-2">
+              <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+                <p class="whitespace-nowrap">organization</p>
+                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+              </div>
+            </th>
+            <th class="bg-gray-100 py-4 px-2">
+              <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+                <p class="whitespace-nowrap">Username</p>
+                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+              </div>
+            </th>
+            <th class="bg-gray-100 py-4 px-2">
+              <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+                <p class="whitespace-nowrap">Email</p>
+                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+              </div>
+            </th>
+            <th class="bg-gray-100 py-4 px-2">
+              <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+                <p class="whitespace-nowrap">Phone number</p>
+                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+              </div>
+            </th>
+            <th class="bg-gray-100 py-4 px-2">
+              <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+                <p class="whitespace-nowrap">Date joined</p>
+                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+              </div>
+            </th>
+            <th class="bg-gray-100 py-4 px-2">
+              <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+                <p class="whitespace-nowrap">Status</p>
+                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+              </div>
+            </th>
+            <th class="bg-gray-100 py-4 px-2">
+              <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="hover:cursor-pointer hover:bg-gray-200">
+            <td>
+              <div class="py-4 border-b px-2">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">Lendsqr</span>
+              </div>
+            </td>
+            <td>
+              <div class="py-4 border-b px-2">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">Adedeji</span>
+              </div>
+            </td>
+            <td>
+              <div class="py-4 border-b px-2">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">adedeji@lendsqr.com</span>
+              </div>
+            </td>
+            <td>
+              <div class="py-4 border-b px-2">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">08078903721</span>
+              </div>
+            </td>
+            <td>
+              <div class="py-4 border-b px-2">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">May 15, 2020 10:00 AM</span>
+              </div>
+            </td>
+            <td>
+              <div class="py-4 border-b px-2">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">Inactive</span>
+              </div>
+            </td>
+            <td>
+              <div class="py-4 border-b px-2">
+                <i class="pi pi-ellipsis-v cursor-pointer text-xs text-text1 font-extrabold" (click)="menu.toggle($event)"></i>
+                <p-menu class="top-0 left-0" #menu [popup]="true" [model]="items"></p-menu>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-4 mb-10">
+      <p-paginator [rows]="10" [totalRecords]="120"></p-paginator>
+    </div>
+  </div>
+
+</div>

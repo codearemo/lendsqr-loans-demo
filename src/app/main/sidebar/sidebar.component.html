@@ -1,0 +1,20 @@
+<div class="text-xs px-5 py-2 text-secondary border-l-4 border-l-transparent flex justify-between items-center">
+  <div class="">
+    <i class="pi pi-user text-sm"></i>
+    <span class="p-2">Switch Organization</span>
+  </div>
+  
+  <i class="pi pi-angle-down text-xs"></i>
+</div>
+
+<nav class="" *ngFor="let navItem of navItems; let i=index">
+  <p *ngIf="navItem.header" class="text-xs font-bold py-2 px-6">{{ navItem.header }}</p>
+  <a href="#" [class]="{'dashboad-link': i === 0 && j === 0 }" class="block"
+    *ngFor="let child of navItem.children; let j=index">
+    <div [class]="{'active': i === 1 && j === 0 }"
+      class="nav-link text-xs px-5 py-2 text-secondary border-l-4 border-l-transparent">
+      <i class="pi pi-user text-sm"></i>
+      <span class="p-2">{{ child.title }}</span>
+    </div>
+  </a>
+</nav>

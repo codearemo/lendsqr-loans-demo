@@ -1,0 +1,32 @@
+<header class="flex bg-white fixed w-full z-10 justify-between items-center p-3 md:p-4 py-5 shadow-md">
+  <div class="flex items-center gap-4">
+    <i (click)="visibleSidebar1 = true" class="pi pi-bars text-lg lg:hidden"></i>
+    
+    <div class="flex justify-between items-center gap-56">
+      <div class="">
+        <img width="110" src="./../../../assets/logo.png" alt="" class="">
+      </div>
+      <div class="items-stretch hidden lg:flex">
+        <input type="text" class="rounded-r-none w-96" pInputText placeholder="Search for anything" />
+        <i
+          class="pi pi-search text-xs text-white bg-primary border border-primary flex justify-center items-center px-4 cursor-pointer rounded-r"></i>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="flex items-center gap-10">
+    <a href="#" class="underline text-sm text-secondary hidden md:inline">Docs</a>
+    <i class="pi pi-bell text-xl text-secondary hidden md:inline"></i>
+    <div class="flex items-center text-secondary">
+      <p-avatar image="./../../../assets/profile-pic.png" styleClass="mr-2" size="" shape="circle"></p-avatar>
+      <button type="button" pButton class="text-xs" icon="pi pi-bars" label="Show" (click)="menu.toggle($event)">Adedeji
+        <i class="pi pi-angle-down text-xs"></i></button>
+      <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </div>
+  </div>
+</header>
+
+<p-sidebar [showCloseIcon]="false" [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+  <app-sidebar class=""></app-sidebar>
+</p-sidebar>
