@@ -34,46 +34,56 @@
   <div class="mt-10 shadow-md">
     <div class="overflow-scroll overflow-y-auto h-96">
       <table class="w-full">
-        <thead class="sticky top-0 bg-white">
+        <thead class="sticky top-0 bg-white z-30">
           <tr class="">
             <th class="bg-gray-100 py-4 px-2">
               <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
                 <p class="whitespace-nowrap">organization</p>
-                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+                <!-- <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3"> -->
               </div>
             </th>
             <th class="bg-gray-100 py-4 px-2">
               <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
                 <p class="whitespace-nowrap">Username</p>
-                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+                <!-- <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3"> -->
               </div>
             </th>
             <th class="bg-gray-100 py-4 px-2">
               <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
                 <p class="whitespace-nowrap">Email</p>
-                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+                <!-- <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3"> -->
               </div>
             </th>
             <th class="bg-gray-100 py-4 px-2">
               <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
                 <p class="whitespace-nowrap">Phone number</p>
-                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+                <!-- <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3"> -->
               </div>
             </th>
             <th class="bg-gray-100 py-4 px-2">
               <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
                 <p class="whitespace-nowrap">Date joined</p>
-                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+                <!-- <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3"> -->
               </div>
             </th>
             <th class="bg-gray-100 py-4 px-2">
               <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
                 <p class="whitespace-nowrap">Status</p>
-                <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
               </div>
             </th>
             <th class="bg-gray-100 py-4 px-2">
               <div class="text-start flex items-center gap-2 pr-7 font-normal text-text1 text-sm">
+                <app-dropdown>
+                  <button type="button" slot-main>
+                    <img src="./../../../../../assets/svg/filter.svg" alt="" class="cursor-pointer w-3">
+                    <!-- <i class="pi pi-ellipsis-v cursor-pointer text-xs text-text1 font-extrabold"></i> -->
+                  </button>
+                  <ng-container slot-content class="bg-white">
+                    <div class="">
+                      
+                    </div>
+                  </ng-container>
+                </app-dropdown>
               </div>
             </th>
           </tr>
@@ -151,9 +161,9 @@
       </table>
     </div>
 
-    <div class="mt-4 mb-10" *ngIf="users">
+    <!-- <div class="mt-4 mb-10" *ngIf="users">
       <p-paginator [rows]="10" [totalRecords]="users.length"></p-paginator>
-    </div>
+    </div> -->
   </div>
 
 </div>

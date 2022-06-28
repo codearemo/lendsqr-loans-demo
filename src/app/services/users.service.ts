@@ -14,6 +14,10 @@ export class UsersService {
 
   private users!: User[];
 
+  get allUsers(): User[] {
+    return this.users;
+  }
+
   fetchUsers() {
     this.http.get<User[]>('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users').subscribe(users => {
       this.users = users;

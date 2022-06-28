@@ -25,6 +25,7 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.users = this.usersSerrvice.allUsers;
     this.isLoading = this.users ? false : true;
 
     this.usersSubscription = this.usersSerrvice.usersSubject.subscribe(users => {
