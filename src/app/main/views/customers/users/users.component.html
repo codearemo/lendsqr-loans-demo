@@ -121,8 +121,8 @@
             </td>
             <td>
               <div class="py-4 border-b px-2">
-                <i class="pi pi-ellipsis-v cursor-pointer text-xs text-text1 font-extrabold" (click)="menu.toggle($event)"></i>
-                <p-menu (onHide)="onHideDropdown(user, $event)" class="top-0 left-0" #menu [popup]="true" [model]="items"></p-menu>
+                <i class="pi pi-ellipsis-v cursor-pointer text-xs text-text1 font-extrabold"></i>
+                <p-menu (onHide)="onHideDropdown(user, menu)" class="top-0 left-0" #menu [popup]="true" [model]="items"></p-menu>
               </div>
             </td>
           </tr>

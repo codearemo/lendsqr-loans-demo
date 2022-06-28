@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { Menu } from 'primeng/menu';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
@@ -46,10 +47,10 @@ export class UsersComponent implements OnInit {
     this.usersSerrvice.fetchUsers();
   }
 
-  onHideDropdown(user: User, menu: any) {
-    // this.selectedUser = user;
-    // console.log(menu);
-    // console.log(user);
+  onHideDropdown(user: User, menu: Menu) {
+    this.selectedUser = user;
+    console.log(menu);
+    console.log(user);
   }
 
   gotoUserDetails(user: User) {
