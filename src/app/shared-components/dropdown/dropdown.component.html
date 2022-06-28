@@ -1,0 +1,28 @@
+<div class="relative">
+  <div (click)="dropdownOpen = !dropdownOpen" class="cursor-pointer min-w-max">
+    <ng-content select="[slot-main]"></ng-content>
+  </div>
+  <div *ngIf="dropdownOpen" (click)="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
+  <div
+    *ngIf="dropdownOpen"
+    class="
+      z-20
+      bg-white
+      origin-top-right
+      absolute
+      right-0
+      mt-2
+      w-48
+      rounded-md
+      shadow-lg
+      py-1
+      ring-1 ring-black ring-opacity-5
+      focus:outline-none
+    "
+    role="menu"
+    aria-orientation="vertical"
+    tabindex="-1"
+  >
+    <ng-content select="[slot-content]"></ng-content>
+  </div>
+</div>

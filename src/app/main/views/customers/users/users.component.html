@@ -81,7 +81,7 @@
         <tbody *ngIf="isLoading">
           <tr>
             <td colspan="7">
-              <div  class="flex justify-center items-center h-64">
+              <div class="flex justify-center items-center h-64">
                 <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
               </div>
             </td>
@@ -111,18 +111,39 @@
             </td>
             <td>
               <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
-                <span class="text-xs whitespace-nowrap text-text1 pr-7">{{ user.createdAt | date: "MMM d, y h:mm:ss a" }}</span>
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">{{ user.createdAt | date: "MMM d, y h:mm:ss a"
+                  }}</span>
               </div>
             </td>
             <td>
               <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
-                <span [class]="user.education?.employmentStatus === 'Employed' ? 'bg-green-300 text-green-600' : 'bg-red-200 text-red-600'" class="text-xs text-center font-normal whitespace-nowrap text-text1 py-1 px-2 rounded bg-opacity-20">{{ user.education?.employmentStatus }}</span>
+                <span
+                  [class]="user.education?.employmentStatus === 'Employed' ? 'bg-green-300 text-green-600' : 'bg-red-200 text-red-600'"
+                  class="text-xs text-center font-normal whitespace-nowrap text-text1 py-1 px-2 rounded bg-opacity-20">{{
+                  user.education?.employmentStatus }}</span>
               </div>
             </td>
             <td>
               <div class="py-4 border-b px-2">
-                <i class="pi pi-ellipsis-v cursor-pointer text-xs text-text1 font-extrabold"></i>
-                <p-menu (onHide)="onHideDropdown(user, menu)" class="top-0 left-0" #menu [popup]="true" [model]="items"></p-menu>
+                <app-dropdown>
+                  <button type="button" slot-main>
+                    <i class="pi pi-ellipsis-v cursor-pointer text-xs text-text1 font-extrabold"></i>
+                  </button>
+                  <ng-container slot-content>
+                    <div (click)="gotoUserDetails(user)" class="flex p-2 gap-2 my-1 items-center text-xs text-secondary">
+                      <i class="pi pi-eye cursor-pointer text-xs text-text1 font-extrabold"></i>
+                      <span class="">View Details</span>
+                    </div>
+                    <div class="flex p-2 gap-2 my-1 items-center text-xs text-secondary">
+                      <i class="pi pi-user-minus cursor-pointer text-xs text-text1 font-extrabold"></i>
+                      <span class="">Blacklist User</span>
+                    </div>
+                    <div class="flex p-2 gap-2 my-1 items-center text-xs text-secondary">
+                      <i class="pi pi-user-plus cursor-pointer text-xs text-text1 font-extrabold"></i>
+                      <span class="">Activate User</span>
+                    </div>
+                  </ng-container>
+                </app-dropdown>
               </div>
             </td>
           </tr>
@@ -130,7 +151,7 @@
       </table>
     </div>
 
-    <div class="mt-4 mb-10"  *ngIf="users">
+    <div class="mt-4 mb-10" *ngIf="users">
       <p-paginator [rows]="10" [totalRecords]="users.length"></p-paginator>
     </div>
   </div>

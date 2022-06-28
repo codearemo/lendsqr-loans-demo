@@ -6,9 +6,11 @@ import { MenuModule } from 'primeng/menu';
 import { SidebarModule } from 'primeng/sidebar';
 import { PaginatorModule } from 'primeng/paginator';
 import { RatingModule } from 'primeng/rating';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
+    DropdownComponent
   ],
   exports: [
     AvatarModule,
@@ -16,6 +18,7 @@ import { RatingModule } from 'primeng/rating';
     SidebarModule,
     PaginatorModule,
     RatingModule,
+    DropdownComponent,
   ],
   imports: [
     CommonModule,

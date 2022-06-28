@@ -15,21 +15,10 @@ export class UsersComponent implements OnInit {
   usersSubscription = new Subscription();
   isLoading = false;
   users!: User[];
-  selectedUser!: User;
+  selectedMenuLabel!: String;
 
   startPoint = 0;
   endPoint!: number;
-  
-    items: MenuItem[] = [
-      {
-        label: 'View Details', icon: 'pi pi-fw pi-eye',
-        command(event?) {
-          console.log(event);
-        },
-      },
-      { label: 'Blacklist User', icon: 'pi pi-fw pi-user-minus' },
-      { label: 'Activate User', icon: 'pi pi-fw pi-user-plus' },
-    ];
 
   constructor(private router: Router,
     private usersSerrvice: UsersService,
@@ -45,12 +34,6 @@ export class UsersComponent implements OnInit {
     });
 
     this.usersSerrvice.fetchUsers();
-  }
-
-  onHideDropdown(user: User, menu: Menu) {
-    this.selectedUser = user;
-    console.log(menu);
-    console.log(user);
   }
 
   gotoUserDetails(user: User) {
