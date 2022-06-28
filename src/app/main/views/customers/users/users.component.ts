@@ -14,9 +14,21 @@ export class UsersComponent implements OnInit {
   usersSubscription = new Subscription();
   isLoading = false;
   users!: User[];
-  
+  selectedUser!: User;
+
   startPoint = 0;
   endPoint!: number;
+  
+    items: MenuItem[] = [
+      {
+        label: 'View Details', icon: 'pi pi-fw pi-eye',
+        command(event?) {
+          console.log(event);
+        },
+      },
+      { label: 'Blacklist User', icon: 'pi pi-fw pi-user-minus' },
+      { label: 'Activate User', icon: 'pi pi-fw pi-user-plus' },
+    ];
 
   constructor(private router: Router,
     private usersSerrvice: UsersService,
@@ -34,10 +46,11 @@ export class UsersComponent implements OnInit {
     this.usersSerrvice.fetchUsers();
   }
 
-  items: MenuItem[] = [
-    { label: 'Profile', icon: 'pi pi-fw pi-user', },
-    { label: 'Sign Out', icon: 'pi pi-fw pi-sign-out' },
-  ];
+  onHideDropdown(user: User, menu: any) {
+    // this.selectedUser = user;
+    // console.log(menu);
+    // console.log(user);
+  }
 
   gotoUserDetails(user: User) {
     this.router.navigateByUrl(`/app/customers/users/${user.id}`);
