@@ -78,36 +78,45 @@
             </th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="hover:cursor-pointer hover:bg-gray-200" (click)="gotoUserDetails()">
+        <tbody *ngIf="isLoading">
+          <tr>
+            <td colspan="7">
+              <div  class="flex justify-center items-center h-64">
+                <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="!isLoading && users">
+          <tr *ngFor="let user of users" class="hover:cursor-pointer hover:bg-gray-200">
             <td>
-              <div class="py-4 border-b px-2">
-                <span class="text-xs whitespace-nowrap text-text1 pr-7">Lendsqr</span>
+              <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">{{ user.orgName }}</span>
               </div>
             </td>
             <td>
-              <div class="py-4 border-b px-2">
-                <span class="text-xs whitespace-nowrap text-text1 pr-7">Adedeji</span>
+              <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">{{ user.userName }}</span>
               </div>
             </td>
             <td>
-              <div class="py-4 border-b px-2">
-                <span class="text-xs whitespace-nowrap text-text1 pr-7">adedeji@lendsqr.com</span>
+              <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">{{ user.email }}</span>
               </div>
             </td>
             <td>
-              <div class="py-4 border-b px-2">
-                <span class="text-xs whitespace-nowrap text-text1 pr-7">08078903721</span>
+              <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">{{ user.phoneNumber }}</span>
               </div>
             </td>
             <td>
-              <div class="py-4 border-b px-2">
-                <span class="text-xs whitespace-nowrap text-text1 pr-7">May 15, 2020 10:00 AM</span>
+              <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
+                <span class="text-xs whitespace-nowrap text-text1 pr-7">{{ user.createdAt | date: "MMM d, y h:mm:ss a" }}</span>
               </div>
             </td>
             <td>
-              <div class="py-4 border-b px-2">
-                <span class="text-xs whitespace-nowrap text-text1 pr-7">Inactive</span>
+              <div class="py-4 border-b px-2" (click)="gotoUserDetails(user)">
+                <span [class]="user.education?.employmentStatus === 'Employed' ? 'bg-green-300 text-green-600' : 'bg-red-200 text-red-600'" class="text-xs text-center font-normal whitespace-nowrap text-text1 py-1 px-2 rounded bg-opacity-20">{{ user.education?.employmentStatus }}</span>
               </div>
             </td>
             <td>
@@ -121,8 +130,8 @@
       </table>
     </div>
 
-    <div class="mt-4 mb-10">
-      <p-paginator [rows]="10" [totalRecords]="120"></p-paginator>
+    <div class="mt-4 mb-10"  *ngIf="users">
+      <p-paginator [rows]="10" [totalRecords]="users.length"></p-paginator>
     </div>
   </div>
 

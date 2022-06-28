@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/user.model';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -8,10 +11,27 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+  usersSubscription = new Subscription();
+  isLoading = false;
+  users!: User[];
+  
+  startPoint = 0;
+  endPoint!: number;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private usersSerrvice: UsersService,
+  ) { }
 
   ngOnInit(): void {
+    this.isLoading = this.users ? false : true;
+
+    this.usersSubscription = this.usersSerrvice.usersSubject.subscribe(users => {
+      this.users = users;
+      this.endPoint = this.users.length;
+      this.isLoading = false;
+    });
+
+    this.usersSerrvice.fetchUsers();
   }
 
   items: MenuItem[] = [
@@ -19,8 +39,8 @@ export class UsersComponent implements OnInit {
     { label: 'Sign Out', icon: 'pi pi-fw pi-sign-out' },
   ];
 
-  gotoUserDetails() {
-    this.router.navigateByUrl('/app/customers/users/001');
+  gotoUserDetails(user: User) {
+    this.router.navigateByUrl(`/app/customers/users/${user.id}`);
   }
 
 }

@@ -5,6 +5,7 @@ import { MainComponent } from './main.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
     CommonModule,
     SharedComponentsModule,
     RouterModule.forChild(routes),
+    HttpClientModule,
   ]
 })
 export class MainModule { }

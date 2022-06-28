@@ -1,6 +1,11 @@
-<div class="">
-    <p (click)="back()" class="inline-flex cursor-pointer items-center gap-2 mb-4 text-sm"><i class="pi pi-arrow-left"></i> Back to Users</p>
+<p (click)="back()" class="inline-flex cursor-pointer items-center gap-2 mb-4 text-xs"><i class="pi pi-arrow-left"></i>
+  Back to Users</p>
 
+<div class="flex justify-center items-center h-[calc(100vh-13rem)]" *ngIf="isLoading">
+  <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+</div>
+
+<div class="" *ngIf="!isLoading">
   <div class="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
     <h2 class="text-lg font-semibold text-secondary">User Details</h2>
     <div class="flex flex-col sm:flex-row gap-4">
@@ -15,8 +20,8 @@
       <div class="flex items-center gap-5">
         <i class="pi pi-user p-10 bg-secondary bg-opacity-40 rounded-full" style="font-size: 4rem"></i>
         <div class="">
-          <h3 class="text-2xl">Grace Effiom</h3>
-          <p class="text-text1 text-sm">LSQFf587g90</p>
+          <h3 class="text-2xl">{{ user?.profile?.firstName }} {{ user?.profile?.lastName }}</h3>
+          <p class="text-text1 text-sm">{{ user.accountNumber }}</p>
         </div>
       </div>
       <hr class="border h-32 hidden md:block">
@@ -27,10 +32,10 @@
       <hr class="border h-32 hidden md:block">
 
       <div class="text-center">
-        <p class="text-lg">₦200,000.00</p>
-        <p class="text-xs">9912345678/Providus Bank</p>
+        <p class="text-lg">₦{{ user.accountBalance }}</p>
+        <p class="text-xs">{{ user?.profile?.bvn }}/{{ user.orgName }}</p>
       </div>
-  
+
     </div>
     <div class="mt-6 px-4 overflow-x-scroll flex md:justify-between">
       <a href="#" class="whitespace-nowrap text-sm px-4 py-2 border-b-2 border-primary text-primary">General Details</a>
@@ -44,127 +49,127 @@
 
   <div class="text-text1 p-4 mt-8 shadow rounded sm:mb-16">
     <h3 class="mb-4">Personal Information</h3>
-    <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div class="grid gap-3 grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
       <div class="">
         <p class="text-xs font-light">full Name</p>
-        <p class="text-xs font-semibold">Grace Effiom</p>
+        <p class="text-xs font-semibold">{{ user?.profile?.firstName }} {{ user?.profile?.lastName }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Phone Number</p>
-        <p class="text-xs font-semibold">07060780922</p>
+        <p class="text-xs font-semibold">{{ user.phoneNumber }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Email Address</p>
-        <p class="text-xs font-semibold">grace@gmail.com</p>
+        <p class="text-xs font-semibold">{{ user.email }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Bvn</p>
-        <p class="text-xs font-semibold">07060780922</p>
+        <p class="text-xs font-semibold">{{ user?.profile?.bvn }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Gender</p>
-        <p class="text-xs font-semibold">Female</p>
+        <p class="text-xs font-semibold">{{ user?.profile?.gender }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Marital status</p>
-        <p class="text-xs font-semibold">Single</p>
+        <p class="text-xs font-semibold">{{ "N/A" }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Children</p>
-        <p class="text-xs font-semibold">None</p>
+        <p class="text-xs font-semibold">{{ "N/A" }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Type of residence</p>
-        <p class="text-xs font-semibold">Parent’s Apartment</p>
+        <p class="text-xs font-semibold">{{ 'N/A'}}</p>
       </div>
     </div>
 
     <hr class="my-8">
-    
+
     <h3 class="mb-4">Education and Employment</h3>
-    <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div class="grid gap-3 grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
       <div class="">
         <p class="text-xs font-light">level of education</p>
-        <p class="text-xs font-semibold">B.Sc</p>
+        <p class="text-xs font-semibold">{{ user?.education?.level }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">employment status</p>
-        <p class="text-xs font-semibold">Employed</p>
+        <p class="text-xs font-semibold">{{ user?.education?.employmentStatus }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">sector of employment</p>
-        <p class="text-xs font-semibold">FinTech</p>
+        <p class="text-xs font-semibold">{{ user?.education?.sector }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Duration of employment</p>
-        <p class="text-xs font-semibold">2 years</p>
+        <p class="text-xs font-semibold">{{ user?.education?.duration }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">office email</p>
-        <p class="text-xs font-semibold">grace@lendsqr.com</p>
+        <p class="text-xs font-semibold">{{ user?.education?.officeEmail }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Monthly income</p>
-        <p class="text-xs font-semibold">₦200,000.00- ₦400,000.00</p>
+        <p class="text-xs font-semibold">{{ user?.education?.level }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">loan repayment</p>
-        <p class="text-xs font-semibold">40,000</p>
+        <p class="text-xs font-semibold">{{ updateMonthlyIncome(user?.education?.monthlyIncome) }} </p>
       </div>
     </div>
 
     <hr class="my-8">
-    
+
     <h3 class="mb-4">Socials</h3>
-    <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div class="grid gap-3 grid-cols-1 sm:grid-cols-3">
       <div class="">
         <p class="text-xs font-light">Twitter</p>
-        <p class="text-xs font-semibold">@grace_effiom</p>
+        <p class="text-xs font-semibold">{{ user?.socials?.twitter }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Facebook</p>
-        <p class="text-xs font-semibold">Grace Effiom</p>
+        <p class="text-xs font-semibold">{{ user?.socials?.facebook }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Email Address</p>
-        <p class="text-xs font-semibold">grace@gmail.com</p>
+        <p class="text-xs font-semibold">{{ user.email }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Instagram</p>
-        <p class="text-xs font-semibold">@grace_effiom</p>
+        <p class="text-xs font-semibold">{{ user?.socials?.instagram }}</p>
       </div>
     </div>
 
     <hr class="my-8">
 
     <h3 class="mb-4">Guarantor</h3>
-    <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div class="grid gap-3 grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
       <div class="">
         <p class="text-xs font-light">full Name</p>
-        <p class="text-xs font-semibold">Debby Ogana</p>
+        <p class="text-xs font-semibold">{{ user?.guarantor?.firstName }} {{ user?.guarantor?.lastName }}</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Phone Number</p>
-        <p class="text-xs font-semibold">07060780922</p>
+        <p class="text-xs font-semibold">N/A</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Email Address</p>
-        <p class="text-xs font-semibold">debby@gmail.com</p>
+        <p class="text-xs font-semibold">N/A</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Bvn</p>
-        <p class="text-xs font-semibold">07060780922</p>
+        <p class="text-xs font-semibold">N/A</p>
       </div>
       <div class="">
         <p class="text-xs font-light">Relationship</p>
-        <p class="text-xs font-semibold">Sister</p>
+        <p class="text-xs font-semibold">N/A</p>
       </div>
     </div>
 
     <hr class="my-8">
-    
-    <h3 class="mb-4">Personal Information</h3>
-    <div class="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+
+    <!-- <h3 class="mb-4">Personal Information</h3>
+    <div class="grid gap-3 grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
       <div class="">
         <p class="text-xs font-light">full Name</p>
         <p class="text-xs font-semibold">Debby Ogana</p>
@@ -181,7 +186,7 @@
         <p class="text-xs font-light">Relationship</p>
         <p class="text-xs font-semibold">Sister</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- <hr class="my-8"> -->
   </div>
